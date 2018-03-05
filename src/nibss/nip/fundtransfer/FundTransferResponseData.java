@@ -1,251 +1,224 @@
 package nibss.nip.fundtransfer;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
+@XmlRootElement(name = "FTSingleCreditResponse" )
+@XmlType(propOrder = { "sessionID", "nameEnquiryRef",
+		"destinationInstitutionCode", "channelCode", "beneficiaryAccountName",
+		"beneficiaryAccountNumber", "beneficiaryBankVerificationNumber",
+		"beneficiaryKYCLevel", "originatorAccountName",
+		"originatorAccountNumber", "originatorBankVerificationNumber",
+		"originatorKYCLevel", "transactionLocation", "narration",
+		"paymentReference", "amount", "responseCode" })
 public class FundTransferResponseData {
 
-	private String SessionID;
-	private String NameEnquiryRef;
-	private String DestinationInstitutionCode;
-	private String ChannelCode;
-	private String BeneficiaryAccountName;
-	private String BeneficiaryAccountNumber;
-	private String BeneficiaryKYCLevel;
-	private String BeneficiaryBankVerificationNumber;
-	private String OriginatorAccountName;
-	private String OriginatorAccountNumber;
-	private String OriginatorBankVerificationNumber;
-	private String OriginatorKYCLevel;
-	private String TransactionLocation;
-	private String Narration;
-	private String PaymentReference;
-	private String Amount;
+	private String sessionID;
+	private String nameEnquiryRef;
+	private String destinationInstitutionCode;
+	private String channelCode;
+	private String beneficiaryAccountName;
+	private String beneficiaryAccountNumber;
+	private String beneficiaryBankVerificationNumber;
+	private String beneficiaryKYCLevel;
+	private String originatorAccountName;
+	private String originatorAccountNumber;
+	private String originatorBankVerificationNumber;
+	private String originatorKYCLevel;
+	private String transactionLocation;
+	private String narration;
+	private String paymentReference;
+	private String amount;
 	// response code
-	private String ResponseCode;
+	private String responseCode;
+
+	public FundTransferResponseData() {
+
+	}
 
 	public FundTransferResponseData(FundTransferRequestData req) {
-		
-		this.SessionID = req.getSessionID();
-		this.NameEnquiryRef = req.getNameEnquiryRef();
-		this.DestinationInstitutionCode = req.getDestinationInstitutionCode();
-		this.ChannelCode = req.getChannelCode();
-		this.BeneficiaryAccountName = req.getBeneficiaryAccountName();
-		this.BeneficiaryAccountNumber = req.getBeneficiaryAccountNumber();
-		this.BeneficiaryKYCLevel = req.getBeneficiaryKYCLevel();
-		this.BeneficiaryBankVerificationNumber = req
+
+		this.sessionID = req.getSessionID();
+		this.nameEnquiryRef = req.getNameEnquiryRef();
+		this.destinationInstitutionCode = req.getDestinationInstitutionCode();
+		this.channelCode = req.getChannelCode();
+		this.beneficiaryAccountName = req.getBeneficiaryAccountName();
+		this.beneficiaryAccountNumber = req.getBeneficiaryAccountNumber();
+		this.beneficiaryKYCLevel = req.getBeneficiaryKYCLevel();
+		this.beneficiaryBankVerificationNumber = req
 				.getBeneficiaryBankVerificationNumber();
-		this.OriginatorAccountName = req.getBeneficiaryAccountName();
-		this.OriginatorAccountNumber = req.getOriginatorAccountNumber();
-		this.OriginatorBankVerificationNumber = req
+		this.originatorAccountName = req.getBeneficiaryAccountName();
+		this.originatorAccountNumber = req.getOriginatorAccountNumber();
+		this.originatorBankVerificationNumber = req
 				.getOriginatorBankVerificationNumber();
-		this.OriginatorKYCLevel = req.getOriginatorKYCLevel();
-		this.TransactionLocation = req.getTransactionLocation();
-		this.Narration = req.getNarration();
-		this.PaymentReference = req.getPaymentReference();
-		this.Amount = req.getAmount();
+		this.originatorKYCLevel = req.getOriginatorKYCLevel();
+		this.transactionLocation = req.getTransactionLocation();
+		this.narration = req.getNarration();
+		this.paymentReference = req.getPaymentReference();
+		this.amount = req.getAmount();
 	}
 
+	@XmlElement(name = "SessionID")
 	public String getSessionID() {
-		return SessionID;
+		return sessionID;
 	}
 
-	
-	public String getNameEnquiryRef() {
-		return NameEnquiryRef;
-	}
-
-	
-	public String getDestinationInstitutionCode() {
-		return DestinationInstitutionCode;
-	}
-
-	
-	public String getChannelCode() {
-		return ChannelCode;
-	}
-
-	
-	public String getBeneficiaryAccountName() {
-		return BeneficiaryAccountName;
-	}
-
-	
-	public String getBeneficiaryAccountNumber() {
-		return BeneficiaryAccountNumber;
-	}
-
-	
-
-	public String getBeneficiaryKYCLevel() {
-		return BeneficiaryKYCLevel;
-	}
-
-
-	public String getBeneficiaryBankVerificationNumber() {
-		return BeneficiaryBankVerificationNumber;
-	}
-
-	
-	public String getOriginatorAccountName() {
-		return OriginatorAccountName;
-	}
-
-	
-	public String getOriginatorAccountNumber() {
-		return OriginatorAccountNumber;
-	}
-
-	
-	public String getOriginatorBankVerificationNumber() {
-		return OriginatorBankVerificationNumber;
-	}
-
-	
-
-	public String getOriginatorKYCLevel() {
-		return OriginatorKYCLevel;
-	}
-
-	
-
-	public String getTransactionLocation() {
-		return TransactionLocation;
-	}
-
-	
-	public String getNarration() {
-		return Narration;
-	}
-
-	
-	public String getPaymentReference() {
-		return PaymentReference;
-	}
-
-	public String getAmount() {
-		return Amount;
-	}
-
-	public String getResponseCode() {
-		return ResponseCode;
-	}
-
-	public void setResponseCode(String responseCode) {
-		ResponseCode = responseCode;
-	}
-
-	/**
-	 * @param sessionID the sessionID to set
-	 */
 	public void setSessionID(String sessionID) {
-		SessionID = sessionID;
+		this.sessionID = sessionID;
 	}
 
-	/**
-	 * @param nameEnquiryRef the nameEnquiryRef to set
-	 */
+	@XmlElement(name = "NameEnquiryRef")
+	public String getNameEnquiryRef() {
+		return nameEnquiryRef;
+	}
+
 	public void setNameEnquiryRef(String nameEnquiryRef) {
-		NameEnquiryRef = nameEnquiryRef;
+		this.nameEnquiryRef = nameEnquiryRef;
 	}
 
-	/**
-	 * @param destinationInstitutionCode the destinationInstitutionCode to set
-	 */
+	@XmlElement(name = "DestinationInstitutionCode")
+	public String getDestinationInstitutionCode() {
+		return destinationInstitutionCode;
+	}
+
 	public void setDestinationInstitutionCode(String destinationInstitutionCode) {
-		DestinationInstitutionCode = destinationInstitutionCode;
+		this.destinationInstitutionCode = destinationInstitutionCode;
 	}
 
-	/**
-	 * @param channelCode the channelCode to set
-	 */
+	@XmlElement(name = "ChannelCode")
+	public String getChannelCode() {
+		return channelCode;
+	}
+
 	public void setChannelCode(String channelCode) {
-		ChannelCode = channelCode;
+		this.channelCode = channelCode;
 	}
 
-	/**
-	 * @param beneficiaryAccountName the beneficiaryAccountName to set
-	 */
+	@XmlElement(name = "BeneficiaryAccountName")
+	public String getBeneficiaryAccountName() {
+		return beneficiaryAccountName;
+	}
+
 	public void setBeneficiaryAccountName(String beneficiaryAccountName) {
-		BeneficiaryAccountName = beneficiaryAccountName;
+		this.beneficiaryAccountName = beneficiaryAccountName;
 	}
 
-	/**
-	 * @param beneficiaryAccountNumber the beneficiaryAccountNumber to set
-	 */
+	@XmlElement(name = "BeneficiaryAccountNumber")
+	public String getBeneficiaryAccountNumber() {
+		return beneficiaryAccountNumber;
+	}
+
 	public void setBeneficiaryAccountNumber(String beneficiaryAccountNumber) {
-		BeneficiaryAccountNumber = beneficiaryAccountNumber;
+		this.beneficiaryAccountNumber = beneficiaryAccountNumber;
 	}
 
-	/**
-	 * @param beneficiaryKYCLevel the beneficiaryKYCLevel to set
-	 */
+	@XmlElement(name = "BeneficiaryKYCLevel")
+	public String getBeneficiaryKYCLevel() {
+		return beneficiaryKYCLevel;
+	}
+
 	public void setBeneficiaryKYCLevel(String beneficiaryKYCLevel) {
-		BeneficiaryKYCLevel = beneficiaryKYCLevel;
+		this.beneficiaryKYCLevel = beneficiaryKYCLevel;
 	}
 
-	/**
-	 * @param beneficiaryBankVerificationNumber the beneficiaryBankVerificationNumber to set
-	 */
+	@XmlElement(name = "BeneficiaryBankVerificationNumber")
+	public String getBeneficiaryBankVerificationNumber() {
+		return beneficiaryBankVerificationNumber;
+	}
+
 	public void setBeneficiaryBankVerificationNumber(
 			String beneficiaryBankVerificationNumber) {
-		BeneficiaryBankVerificationNumber = beneficiaryBankVerificationNumber;
+		this.beneficiaryBankVerificationNumber = beneficiaryBankVerificationNumber;
 	}
 
-	/**
-	 * @param originatorAccountName the originatorAccountName to set
-	 */
+	@XmlElement(name = "OriginatorAccountName")
+	public String getOriginatorAccountName() {
+		return originatorAccountName;
+	}
+
 	public void setOriginatorAccountName(String originatorAccountName) {
-		OriginatorAccountName = originatorAccountName;
+		this.originatorAccountName = originatorAccountName;
 	}
 
-	/**
-	 * @param originatorAccountNumber the originatorAccountNumber to set
-	 */
+	@XmlElement(name = "OriginatorAccountNumber")
+	public String getOriginatorAccountNumber() {
+		return originatorAccountNumber;
+	}
+
 	public void setOriginatorAccountNumber(String originatorAccountNumber) {
-		OriginatorAccountNumber = originatorAccountNumber;
+		this.originatorAccountNumber = originatorAccountNumber;
 	}
 
-	/**
-	 * @param originatorBankVerificationNumber the originatorBankVerificationNumber to set
-	 */
+	@XmlElement(name = "OriginatorBankVerificationNumber")
+	public String getOriginatorBankVerificationNumber() {
+		return originatorBankVerificationNumber;
+	}
+
 	public void setOriginatorBankVerificationNumber(
 			String originatorBankVerificationNumber) {
-		OriginatorBankVerificationNumber = originatorBankVerificationNumber;
+		this.originatorBankVerificationNumber = originatorBankVerificationNumber;
 	}
 
-	/**
-	 * @param originatorKYCLevel the originatorKYCLevel to set
-	 */
+	@XmlElement(name = "OriginatorKYCLevel")
+	public String getOriginatorKYCLevel() {
+		return originatorKYCLevel;
+	}
+
 	public void setOriginatorKYCLevel(String originatorKYCLevel) {
-		OriginatorKYCLevel = originatorKYCLevel;
+		this.originatorKYCLevel = originatorKYCLevel;
 	}
 
-	/**
-	 * @param transactionLocation the transactionLocation to set
-	 */
+	@XmlElement(name = "TransactionLocation")
+	public String getTransactionLocation() {
+		return transactionLocation;
+	}
+
 	public void setTransactionLocation(String transactionLocation) {
-		TransactionLocation = transactionLocation;
+		this.transactionLocation = transactionLocation;
 	}
 
-	/**
-	 * @param narration the narration to set
-	 */
+	@XmlElement(name = "Narration")
+	public String getNarration() {
+		return narration;
+	}
+
 	public void setNarration(String narration) {
-		Narration = narration;
+		this.narration = narration;
 	}
 
-	/**
-	 * @param paymentReference the paymentReference to set
-	 */
+	@XmlElement(name = "PaymentReference")
+	public String getPaymentReference() {
+		return paymentReference;
+	}
+
 	public void setPaymentReference(String paymentReference) {
-		PaymentReference = paymentReference;
+		this.paymentReference = paymentReference;
+	}
+
+	@XmlElement(name = "Amount")
+	public String getAmount() {
+		return amount;
+	}
+
+	public void setAmount(String amount) {
+		this.amount = amount;
 	}
 
 	/**
-	 * @param amount the amount to set
+	 * @return the responseCode
 	 */
-	public void setAmount(String amount) {
-		Amount = amount;
+	@XmlElement(name = "ResponseCode")
+	public String getResponseCode() {
+		return responseCode;
 	}
 
-
+	/**
+	 * @param responseCode
+	 *            the responseCode to set
+	 */
+	public void setResponseCode(String responseCode) {
+		this.responseCode = responseCode;
+	}
 
 }

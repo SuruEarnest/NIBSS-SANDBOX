@@ -1,7 +1,6 @@
 package nibss.nip.core;
 
-import javax.jws.WebService; 
-
+import javax.jws.WebService;   
 import nibss.nip.balanceenquiry.BalanceEnquiryRequestData;
 import nibss.nip.balanceenquiry.BalanceEnquiryResponseData;
 import nibss.nip.balanceenquiry.BalanceEnquiryService;
@@ -28,11 +27,9 @@ public class NIPInterfaceImpl implements NIPInterface {
 	}
 
 	@Override
-	public NameEnquiryResponseData makeNameEnquirySingleItem(
-			NameEnquiryRequestData req) {
+	public NameEnquiryResponseData makeNameEnquirySingleItem(NameEnquiryRequestData req) {
 
-		NameEnquiryResponseData res = new NameEnquiryService(req)
-				.doNameEnquiry();
+		NameEnquiryResponseData res = new NameEnquiryService(req).doNameEnquiry();
 
 		return res;
 	}
@@ -50,11 +47,9 @@ public class NIPInterfaceImpl implements NIPInterface {
 	}
 
 	@Override
-	public BalanceEnquiryResponseData makeBalanceEnquiry(
-			BalanceEnquiryRequestData req) {
+	public BalanceEnquiryResponseData makeBalanceEnquiry(BalanceEnquiryRequestData req) {
 
-		BalanceEnquiryResponseData res = new BalanceEnquiryService(req)
-				.makeEnquiry();
+		BalanceEnquiryResponseData res = new BalanceEnquiryService(req).makeEnquiry();
 		return null;
 	}
 
@@ -62,8 +57,7 @@ public class NIPInterfaceImpl implements NIPInterface {
 	public FundTransferResponseData doFundTransferSingleItem_dc(
 			FundTransferRequestData req) {
 
-		FundTransferResponseData res = new FundTransferService(req)
-				.doDirectCreditTransfer();
+		FundTransferResponseData res = new FundTransferService(req).doDirectCreditTransfer();
 
 		return res;
 	}
@@ -72,9 +66,8 @@ public class NIPInterfaceImpl implements NIPInterface {
 	public FundTransferResponseData doFundTransferSingleItem_dd(
 			FundTransferRequestData req) {
 
-		FundTransferResponseData res = new FundTransferService(req)
-				.doDirectDeditTransfer();
-		;
+		FundTransferResponseData res = new FundTransferService(req).doDirectDeditTransfer();
+		
 
 		return null;
 	}

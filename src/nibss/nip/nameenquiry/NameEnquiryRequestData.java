@@ -1,42 +1,56 @@
 package nibss.nip.nameenquiry;
 
+import javax.xml.bind.annotation.XmlRootElement; 
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.XmlElement;
+
+@XmlRootElement(name="NESingleRequest")
+@XmlType(propOrder = { "sessionID", "destinationInstitutionCode",
+		"channelCode", "accountNumber" })
 public class NameEnquiryRequestData {
 
-	private String SessionID;
-	private String DestinationInstitutionCode;
-	private String ChannelCode;
-	private String AccountNumber;
+	private String sessionID;
+	private String destinationInstitutionCode;
+	private String channelCode;
+	private String accountNumber;
 
+	public NameEnquiryRequestData() {
+	}
+
+	@XmlElement(name = "SessionID")
 	public String getSessionID() {
-		return SessionID;
+		return sessionID;
 	}
 
 	public void setSessionID(String sessionID) {
-		SessionID = sessionID;
+		this.sessionID = sessionID;
 	}
 
+	@XmlElement(name = "DestinationInstitutionCode")
 	public String getDestinationInstitutionCode() {
-		return DestinationInstitutionCode;
+		return destinationInstitutionCode;
 	}
 
 	public void setDestinationInstitutionCode(String destinationInstitutionCode) {
-		DestinationInstitutionCode = destinationInstitutionCode;
+		this.destinationInstitutionCode = destinationInstitutionCode;
 	}
 
+	@XmlElement(name = "ChannelCode")
 	public String getChannelCode() {
-		return ChannelCode;
+		return channelCode;
 	}
 
 	public void setChannelCode(String channelCode) {
-		ChannelCode = channelCode;
+		this.channelCode = channelCode;
 	}
 
+	@XmlElement(name = "AccountNumber")
 	public String getAccountNumber() {
-		return AccountNumber;
+		return accountNumber;
 	}
 
 	public void setAccountNumber(String accountNumber) {
-		AccountNumber = accountNumber;
+		this.accountNumber = accountNumber;
 	}
 
 }

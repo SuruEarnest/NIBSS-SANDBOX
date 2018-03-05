@@ -1,7 +1,8 @@
 package nibss.nip.core;
 
-import javax.jws.WebMethod;   
+import javax.jws.WebMethod;    
 import javax.jws.WebParam;
+import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
@@ -18,6 +19,7 @@ import nibss.nip.nameenquiry.NameEnquiryResponseData;
 public interface NIPInterface {
 
 	@WebMethod(operationName = "fundtransfersingleitem_dc")
+	@WebResult(name="FTSingleCreditResponse")
 	public abstract FundTransferResponseData doFundTransferSingleItem_dc(@WebParam(name="FTSingleCreditRequest")FundTransferRequestData req);
 
 	@WebMethod(operationName = "fundtransfersingleitem_dd")
@@ -33,6 +35,7 @@ public interface NIPInterface {
 	public abstract BalanceEnquiryResponseData makeBalanceEnquiry(@WebParam(name = "BalanceEnquiryRequest") BalanceEnquiryRequestData req);
 
 	@WebMethod(operationName = "nameenquirysingleitem")
+	@WebResult(name="NESingleResponse")
 	public abstract NameEnquiryResponseData makeNameEnquirySingleItem(@WebParam(name = "NESingleRequest") NameEnquiryRequestData req);
 
 	@WebMethod(operationName = "amountblock")

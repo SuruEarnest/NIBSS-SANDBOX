@@ -1,98 +1,134 @@
 package nibss.nip.nameenquiry;
 
-public class NameEnquiryResponseData {
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
+@XmlRootElement(name = "NESingleResponse")
+@XmlType(propOrder = { "sessionID", "destinationInstitutionCode",
+		"channelCode", "accountNumber", "accountName",
+		"bankVerificationNumber", "kycLevel", "responseCode" })
+public class NameEnquiryResponseData {
 	// original request data
-	private String SessionID;
-	private String DestinationInstitutionCode;
-	private String ChannelCode;
-	private String AccountNumber;
+	private String sessionID;
+	private String destinationInstitutionCode;
+	private String channelCode;
+	private String accountNumber;
 	// appended data to the response
-	private String AccountName;
-	private String BankVerificationNumber;
-	private String ResponseCode;
-	private String KYCLevel;
+	private String accountName;
+	private String bankVerificationNumber;
+	private String kycLevel;
+	private String responseCode;
+
+	public NameEnquiryResponseData() {
+
+	}
 
 	public NameEnquiryResponseData(NameEnquiryRequestData req) {
-		this.SessionID = req.getSessionID();
-		this.DestinationInstitutionCode = req.getDestinationInstitutionCode();
-		this.ChannelCode = req.getChannelCode();
-		this.AccountNumber = req.getAccountNumber();
+		this.sessionID = req.getSessionID();
+		this.destinationInstitutionCode = req.getDestinationInstitutionCode();
+		this.channelCode = req.getChannelCode();
+		this.accountNumber = req.getAccountNumber();
 	}
 
+	@XmlElement(name = "SessionID")
 	public String getSessionID() {
-		return SessionID;
+		return sessionID;
 	}
 
-	public String getDestinationInstitutionCode() {
-		return DestinationInstitutionCode;
-	}
-
-	public String getChannelCode() {
-		return ChannelCode;
-	}
-
-	public String getAccountNumber() {
-		return AccountNumber;
-	}
-
-	public String getAccountName() {
-		return AccountName;
-	}
-
-	public void setAccountName(String accountName) {
-		AccountName = accountName;
-	}
-
-	public String getBankVerificationNumber() {
-		return BankVerificationNumber;
-	}
-
-	public void setBankVerificationNumber(String bankVerificationNumber) {
-		BankVerificationNumber = bankVerificationNumber;
-	}
-
-	public String getResponseCode() {
-		return ResponseCode;
-	}
-
-	public void setResponseCode(String responseCode) {
-		ResponseCode = responseCode;
-	}
-
-	public String getKYCLevel() {
-		return KYCLevel;
-	}
-
-	public void setKYCLevel(String kYCLevel) {
-		KYCLevel = kYCLevel;
-	}
-
-	/**
-	 * @param sessionID the sessionID to set
-	 */
 	public void setSessionID(String sessionID) {
-		SessionID = sessionID;
+		this.sessionID = sessionID;
 	}
 
-	/**
-	 * @param destinationInstitutionCode the destinationInstitutionCode to set
-	 */
+	@XmlElement(name = "DestinationInstitutionCode")
+	public String getDestinationInstitutionCode() {
+		return destinationInstitutionCode;
+	}
+
 	public void setDestinationInstitutionCode(String destinationInstitutionCode) {
-		DestinationInstitutionCode = destinationInstitutionCode;
+		this.destinationInstitutionCode = destinationInstitutionCode;
 	}
 
-	/**
-	 * @param channelCode the channelCode to set
-	 */
+	@XmlElement(name = "ChannelCode")
+	public String getChannelCode() {
+		return channelCode;
+	}
+
 	public void setChannelCode(String channelCode) {
-		ChannelCode = channelCode;
+		this.channelCode = channelCode;
+	}
+
+	@XmlElement(name = "AccountNumber")
+	public String getAccountNumber() {
+		return accountNumber;
+	}
+
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
 	}
 
 	/**
-	 * @param accountNumber the accountNumber to set
+	 * @return the accountName
 	 */
-	public void setAccountNumber(String accountNumber) {
-		AccountNumber = accountNumber;
+	@XmlElement(name = "AccountName")
+	public String getAccountName() {
+		return accountName;
 	}
+
+	/**
+	 * @param accountName
+	 *            the accountName to set
+	 */
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
+	}
+
+	/**
+	 * @return the bankVerificationNumber
+	 */
+	@XmlElement(name = "BankVerificationNumber")
+	public String getBankVerificationNumber() {
+		return bankVerificationNumber;
+	}
+
+	/**
+	 * @param bankVerificationNumber
+	 *            the bankVerificationNumber to set
+	 */
+	public void setBankVerificationNumber(String bankVerificationNumber) {
+		this.bankVerificationNumber = bankVerificationNumber;
+	}
+
+	/**
+	 * @return the kycLevel
+	 */
+	@XmlElement(name = "KYCLevel")
+	public String getKycLevel() {
+		return kycLevel;
+	}
+
+	/**
+	 * @param kycLevel
+	 *            the kycLevel to set
+	 */
+	public void setKycLevel(String kycLevel) {
+		this.kycLevel = kycLevel;
+	}
+
+	/**
+	 * @return the responseCode
+	 */
+	@XmlElement(name = "ResponseCode")
+	public String getResponseCode() {
+		return responseCode;
+	}
+
+	/**
+	 * @param responseCode
+	 *            the responseCode to set
+	 */
+	public void setResponseCode(String responseCode) {
+		this.responseCode = responseCode;
+	}
+
 }

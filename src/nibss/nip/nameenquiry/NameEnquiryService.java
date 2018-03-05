@@ -33,7 +33,7 @@ public class NameEnquiryService {
 
 			res.setAccountName("Suru Earnest Erihbra");
 			res.setBankVerificationNumber("1020987625");
-			res.setKYCLevel("1");
+			res.setKycLevel("1");
 			res.setResponseCode("00");
 			
 		} else {
